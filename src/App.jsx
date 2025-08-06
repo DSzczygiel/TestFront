@@ -26,11 +26,14 @@ function App() {
   }, [baseUrl]);
 
   if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
+  if (error) return <div className="error">
+          <h1>Deply msg test</h1>
+
+    Error: {error}
+    </div>;
 
   return (
     <div className="app">
-      <h1>Deply msg test</h1>
       <h1>Persons List</h1>
       <div className="table-container">
         <table>
