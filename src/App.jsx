@@ -7,8 +7,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
-    fetch('http://localhost:8080/persons')
+    fetch(`${baseUrl}/persons`)
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
@@ -21,7 +23,7 @@ function App() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [baseUrl]);
 
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">Error: {error}</div>;
